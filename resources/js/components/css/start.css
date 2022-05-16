@@ -1,0 +1,30 @@
+html,
+body {
+    margin: 0px;
+    height: 100%;
+    background-color: #002451;
+    color: white;
+    font-family: ui-sans-serif;
+}
+.button-quiz-div {
+    width: 100%;
+    height: auto;
+    margin-top: 60px;
+}
+.paragraph-btn > p {
+    text-align: center;
+    font-size: 1.7rem;
+}
+.start-quiz-btn , .start-quiz-btn:hover{
+    margin: auto;
+    display: block;
+    background-color: #002451;
+    border: 2px solid #0353b4;
+    color: #fff;
+    font-size: 1.7rem;
+    width: 205px;
+    padding: 10px;
+    border-radius: 15px;
+    text-align: center;
+    text-decoration: none;
+}
