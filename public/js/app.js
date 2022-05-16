@@ -5531,32 +5531,32 @@ function Category(props) {
       state = _useState2[0],
       setData = _useState2[1];
 
+  var path = "/api/question/".concat(props.category_id);
+
   var fetchData = /*#__PURE__*/function () {
     var _ref = _asyncToGenerator( /*#__PURE__*/_babel_runtime_regenerator__WEBPACK_IMPORTED_MODULE_0___default().mark(function _callee() {
-      var path, _api, api;
+      var _api, api;
 
       return _babel_runtime_regenerator__WEBPACK_IMPORTED_MODULE_0___default().wrap(function _callee$(_context) {
         while (1) {
           switch (_context.prev = _context.next) {
             case 0:
-              path = "/api/question/".concat(props.category_id);
-              console.log(path);
               console.log(props.category_id);
 
               if (props.category_id != undefined) {
                 _api = "/api/question/";
               }
 
-              _context.next = 6;
+              _context.next = 4;
               return fetch(path);
 
-            case 6:
+            case 4:
               api = _context.sent;
               _context.t0 = setData;
-              _context.next = 10;
+              _context.next = 8;
               return api.json();
 
-            case 10:
+            case 8:
               _context.t1 = _context.sent;
               _context.t2 = {
                 users: _context.t1
@@ -5564,7 +5564,7 @@ function Category(props) {
               (0, _context.t0)(_context.t2);
               console.log(api);
 
-            case 14:
+            case 12:
             case "end":
               return _context.stop();
           }
@@ -5579,7 +5579,7 @@ function Category(props) {
 
   (0,react__WEBPACK_IMPORTED_MODULE_2__.useEffect)(function () {
     fetchData();
-  }, []);
+  }, [path]);
   var list = [];
   var option = [];
   console.log(state.users);

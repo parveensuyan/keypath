@@ -9,9 +9,9 @@ function Category(props) {
     const [state, setData] = useState({
         users: [],
     });
+    const path = `/api/question/${props.category_id}`;
     const fetchData = async () => {
-        const path = `/api/question/${props.category_id}`;
-        console.log(path);
+        
         console.log(props.category_id);
         if (props.category_id != undefined) {
            const api = `/api/question/`;
@@ -26,7 +26,7 @@ function Category(props) {
     };
     useEffect(() => {
         fetchData();
-    }, []);
+    }, [path]);
     const list = [];
     const option = [];
     console.log(state.users);
