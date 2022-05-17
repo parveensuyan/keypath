@@ -21,8 +21,6 @@ function Category(props) {
         setData({
             users: await api.json(),
         });
-    console.log(api);
-
     };
     useEffect(() => {
         fetchData();
@@ -60,7 +58,7 @@ function Category(props) {
                 </div>
             ))}
             <Link className="start-quiz-btn" to={"/category/" + category_id}>
-                Get Started
+                Next
             </Link>
         </div>
     );

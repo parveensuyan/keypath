@@ -5562,9 +5562,8 @@ function Category(props) {
                 users: _context.t1
               };
               (0, _context.t0)(_context.t2);
-              console.log(api);
 
-            case 12:
+            case 11:
             case "end":
               return _context.stop();
           }
@@ -5615,7 +5614,7 @@ function Category(props) {
     }), /*#__PURE__*/(0,react_jsx_runtime__WEBPACK_IMPORTED_MODULE_5__.jsx)(react_router_dom__WEBPACK_IMPORTED_MODULE_6__.Link, {
       className: "start-quiz-btn",
       to: "/category/" + category_id,
-      children: "Get Started"
+      children: "Next"
     })]
   });
 }
