@@ -16,7 +16,6 @@ return new class extends Migration
         Schema::create('result', function (Blueprint $table) {
             $table->increments('result_id');	
             $table->integer('category_id');
-            $table->bigInteger('session_id');
             $table->double('percentage');
             $table->timestamp('created_at')->useCurrent();
             $table->timestamp('updated_at')->useCurrent()->useCurrentOnUpdate();

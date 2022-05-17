@@ -13,7 +13,7 @@ function Category(props) {
         questions: [],
         category_id: 0,
         final_category: false,
-    });
+    }) ;
 
     const fetchData = async () => {
         const path = `/api/question/${state.category_id}`;

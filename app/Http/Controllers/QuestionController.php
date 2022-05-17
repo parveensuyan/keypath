@@ -6,6 +6,7 @@ use App\Models\QuestionAnswer;
 use App\Models\QuestionModel;
 use App\Models\CategoryModel;
 use App\Models\OptionModel;
+use App\Models\ResultModel;
 use Illuminate\Http\Request;
 
 class QuestionController extends Controller
@@ -35,7 +36,7 @@ class QuestionController extends Controller
         ]);
     }
 
-    public function submit(Request $request)
+   public function submit(Request $request)
     {
         $questions = $request->input('questions');
         $answers = QuestionAnswer::with('question')->get()->toArray();
@@ -53,12 +54,21 @@ class QuestionController extends Controller
         foreach ($answers as $answer):
             $categoryId = $answer['question']['category_id'];
             $questionId = $answer['qtn_id'];
+            $question = $answer['question'];
             if (!isset($scorePerCategory[$categoryId])) {
                 $scorePerCategory[$categoryId] = 0;
             }
             $submittedQuestion = isset($questions[$questionId]) ? array_keys($questions[$questionId]) : [];
-            if (in_array($answer['option_id'], $submittedQuestion)) {
-                $scorePerCategory[$categoryId]++;
+            if ($question["question_type"] == 'checkbox') {
+                $tempAnswers = explode(',', $answer['option_id']);
+                $diff = array_diff($submittedQuestion, $tempAnswers);
+                if (count($submittedQuestion) == count($tempAnswers) && count($diff) == 0) {
+                    $scorePerCategory[$categoryId]++;
+                }
+            } else {
+                if (in_array($answer['option_id'], $submittedQuestion)) {
+                    $scorePerCategory[$categoryId]++;
+                }
             }
         endforeach;
 
@@ -75,9 +85,15 @@ class QuestionController extends Controller
             $result[] = $item;
             return $result;
         }, []);
-
+        // $saveResult = new ResultModel;
+        foreach($result as $value){
+        ResultModel::insert(
+	    ['category_id' =>  $value['category_id'], 'percentage' => $value['result']]
+    	);
+           
+        }
+      
         return response()->json(['result' => $result]);
     }
-
 
 }
