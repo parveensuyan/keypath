@@ -22,9 +22,9 @@ body {
     border: 2px solid #0353b4;
     color: #fff;
     font-size: 1.7rem;
-    width: 205px;
-    padding: 10px;
-    border-radius: 15px;
+    width: fit-content;
+    padding: 10px 20px;
+    border-radius: 5px;
     text-align: center;
     text-decoration: none;
 }

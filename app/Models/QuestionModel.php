@@ -10,4 +10,9 @@ class QuestionModel extends Model
     use HasFactory;
     protected $table = 'question';
 
+    public function category()
+    {
+        return $this->hasOne(Categorymodel::class);
+    }
+    
 }

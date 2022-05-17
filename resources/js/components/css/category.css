@@ -1,17 +1,29 @@
 .qtn-div-inner-main {
     color: black;
     background-color: white;
-    width: 50%;
+    width: 650px;
     font-size: 1.2rem;
     height: calc(100% - 15px);
-    padding: 13px;
-    border-radius: 20px;
+    padding: 13px 20px;
+    border-radius: 5px;
     border: 1px solid black;
     margin: 10px auto 10px auto;
-    box-shadow: 5px 10px 17px #888888;
+    box-shadow: 2px 3px 5px #000000;
+}
+.qtn-option-list {
+    display: flex;
+    align-items: center;
 }
 .qtn-option-list > label {
     margin-left: 10px;
      font-size: 1.2rem;
      text-transform: capitalize;
+}
+
+.result-row {
+    display: flex;
+}
+
+.result-row > .percentage {
+    padding-left: 15px;
 }
